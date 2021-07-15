@@ -40,10 +40,18 @@
     </a>
   </div>
 
-  <div class="p-3 px-md-2 py-md-0">
-    <a href="./en" role="button">
-        <span class="docs-icon-github"></span>
-        <span class="align-middle">Lingua</span>
-    </a>
+  <div class="p-3 px-md-2 py-md-0 d-flex flex-wrap">
+    <select style="height: 30px" onchange="languageNavigator(this.value)">
+    {% for x in languages %}
+        <option value="../{{x}}/" {% if x == language %}selected{% endif %}>{{x}}</option>
+    {% endfor %}
+    </select>
+
+    <script>
+    function languageNavigator(value) {
+      window.location.assign(value);
+    }
+    </script>
   </div>
+
 </div>
